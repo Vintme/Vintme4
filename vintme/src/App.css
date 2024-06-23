@@ -1,14 +1,15 @@
-
 /* UnderConstruction.css */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
   height: 100%;
+  width: 100%;
 }
 
 html, #root {
   height: 100%;
+  width: 100%;
 }
 
 .construction-container {
@@ -28,6 +29,8 @@ html, #root {
 .content {
   max-width: 600px;
   padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a semi-transparent overlay for readability */
+  border-radius: 10px; /* Optional: Rounds the corners of the content box */
 }
 
 h1 {

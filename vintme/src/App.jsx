@@ -9,6 +9,19 @@ function App() {
     "About",
   ];
 
+  const handleLoginWithGoogle = () => {
+    // Construct Google OAuth URL
+    const clientId = 'YOUR_CLIENT_ID'; // Replace with your Google OAuth client ID
+    const redirectUri = 'YOUR_REDIRECT_URI'; // Replace with your redirect URI
+    const scope = 'email profile openid'; // Specify the scopes your application requires
+
+    // Construct the OAuth URL
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=token`;
+
+    // Redirect to Google login page
+    window.location.href = authUrl;
+  };
+
   return (
     <>
       <header className="header">
@@ -35,8 +48,12 @@ function App() {
             ))}
           </nav>
           <div className="actions">
-            <button className="main-action">Vint!</button>
-            <button className="secondary-action">Conectar</button>
+            <button className="main-action" onClick={handleLoginWithGoogle}>
+              Vint!
+            </button>
+            <button className="secondary-action" onClick={() => {
+              window.open('https://metamask.io', '_blank');
+            }}>Conectar</button>
           </div>
         </div>
       </header>
@@ -53,20 +70,13 @@ function App() {
             blockchain para reducir intermediarios entre las bodegas de la región
             y sus clientes.
           </p>
-          <button className="cta-button" tabIndex="0">
+          <button className="cta-button" tabIndex="0" onClick={() => {
+            window.open('https://metamask.io', '_blank');
+          }}>
             Conectá tu billetera
           </button>
         </section>
       </section>
-      <div className="construction-container">
-        <div className="content">
-          <h1>UNDER CONSTRUCTION</h1>
-          <img
-            src="https://i.ibb.co/dKtMz98/Logo-Vintme-Logo.png"
-            alt="Under Construction"
-          />
-        </div>
-      </div>
       <style jsx>{`
         .hero-section {
           position: absolute;
