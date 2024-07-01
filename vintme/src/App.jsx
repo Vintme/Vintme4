@@ -22,6 +22,26 @@ function App() {
     window.location.href = authUrl;
   };
 
+  const connectMetaMask = () => {
+    if (window.ethereum) {
+      // Request MetaMask access
+      window.ethereum.enable()
+        .then(accounts => {
+          // MetaMask is connected and accounts are exposed
+          console.log('Connected to MetaMask');
+          console.log('Accounts:', accounts);
+          // You can perform additional actions here after connection
+        })
+        .catch(error => {
+          console.error('Error connecting to MetaMask:', error);
+          // Handle error connecting to MetaMask
+        });
+    } else {
+      // MetaMask is not installed
+      alert('Please install MetaMask to use this feature');
+    }
+  };
+
   return (
     <>
       <header className="header">
@@ -51,9 +71,9 @@ function App() {
             <button className="main-action" onClick={handleLoginWithGoogle}>
               Vint!
             </button>
-            <button className="secondary-action" onClick={() => {
-              window.open('https://metamask.io', '_blank');
-            }}>Conectar</button>
+            <button className="secondary-action" onClick={connectMetaMask}>
+              Conectar
+            </button>
           </div>
         </div>
       </header>
@@ -70,9 +90,7 @@ function App() {
             blockchain para reducir intermediarios entre las bodegas de la región
             y sus clientes.
           </p>
-          <button className="cta-button" tabIndex="0" onClick={() => {
-            window.open('https://metamask.io', '_blank');
-          }}>
+          <button className="cta-button" tabIndex="0" onClick={connectMetaMask}>
             Conectá tu billetera
           </button>
         </section>
