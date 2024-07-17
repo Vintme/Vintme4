@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 
 function App() {
   const navLinks = [
@@ -96,19 +95,6 @@ function App() {
             Conectá tu billetera
           </button>
         </section>
-      </section>
-      <section>
-        <DesktopVintNft
-          nombre="Reserva Especial"
-          colecciN="2° Colección"
-          categorA="Premium"
-          regiN="Mendoza"
-          nombreBodega="Bodega Fina"
-          varietal="Malbec"
-          estadoNft="stock-disponible"
-          className="nft-card"
-          group="group-1233.png"
-        />
       </section>
 
       <style jsx>{`
