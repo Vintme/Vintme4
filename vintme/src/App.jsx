@@ -1,8 +1,5 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { DesktmobileNftCard } from "./DesktmobileNftCard";
-import { ElefanteWines } from "./ElefanteWines";
-import { DesktopVintNft } from "./DesktopVintNft";
 
 function App() {
   const navLinks = [
