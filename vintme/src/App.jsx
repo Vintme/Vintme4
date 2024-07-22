@@ -96,7 +96,70 @@ function App() {
           </button>
         </section>
       </section>
+     <section className="hero-section">
+            <div
+      className={`[background:linear-gradient(180deg,rgb(63,66,221)_0%,rgb(44,7,119)_100%)] inline-flex flex-col items-center gap-[21px] shadow-shadow-cards p-6 rounded-2xl relative ${className}`}
+    >
+      <div className="inline-flex items-start gap-[21px] flex-[0_0_auto] justify-center relative">
+        <ElefanteWines className="!relative !w-[60px] !h-[60px]" />
+        <div className="w-[243px] mr-[-4.00px] h-[62px] relative">
+          <div className="[font-family:'Onest-SemiBold',Helvetica] w-[239px] left-0 tracking-[0] text-[25px] top-0 text-blanco-95 absolute h-[31px] font-semibold leading-[normal]">
+            {nombreBodega}
+          </div>
+          <div className="font-text2-desktop w-[239px] left-0 tracking-[var(--text2-desktop-letter-spacing)] [font-style:var(--text2-desktop-font-style)] text-[length:var(--text2-desktop-font-size)] top-[31px] text-blanco-95 absolute h-[31px] font-[number:var(--text2-desktop-font-weight)] leading-[var(--text2-desktop-line-height)]">
+            {colecciN}
+          </div>
+        </div>
+      </div>
+      <img
+        className="w-full self-stretch mr-[-15.00px] ml-[-15.00px] h-[270px] relative"
+        alt="Group"
+        src={estadoNft === "ltimas-unidades" ? "image.png" : estadoNft === "sold-out" ? "group-1233-2.png" : group}
+      />
+      <div className="w-full flex self-stretch flex-col items-center gap-2 flex-[0_0_auto] px-1 py-0 relative">
+        <div className="[font-family:'Onest-SemiBold',Helvetica] self-stretch mt-[-1.00px] tracking-[0] text-xl text-blanco-95 relative font-semibold leading-[normal]">
+          {nombre}
+        </div>
+        <div className="[font-family:'Onest-SemiBold',Helvetica] self-stretch tracking-[0] text-lg text-blanco-95 relative font-semibold leading-[normal]">
+          {categorA}
+        </div>
+        <div className="[font-family:'Onest-Regular',Helvetica] self-stretch tracking-[0] text-lg text-blanco-95 relative font-normal leading-[normal]">
+          {varietal}
+        </div>
+        <div className="[font-family:'Onest-Regular',Helvetica] self-stretch tracking-[0] text-lg text-blanco-95 relative font-normal leading-[normal]">
+          {regiN}
+        </div>
+      </div>
+      {estadoNft === "stock-disponible" && (
+        <DesktmobileNftCard className="!self-stretch !flex-[0_0_auto] !flex !w-full" estado="enable" texto="VINT" />
+      )}
 
+      {["ltimas-unidades", "sold-out"].includes(estadoNft) && (
+        <div
+          className={`w-full flex self-stretch items-center gap-2 flex-[0_0_auto] px-3.5 py-1.5 rounded-[25px] justify-center relative ${
+            estadoNft === "ltimas-unidades" ? "shadow-shadow-button" : ""
+          } ${estadoNft === "sold-out" ? "bg-collection-1-morado-pastel-02" : "bg-morado-pastel"}`}
+        >
+          <div className="border border-solid border-morado-vintme w-6 h-6 rounded-xl bg-blanco-95 relative">
+            <div
+              className={`w-[17px] left-[3px] top-[3px] h-[17px] rounded-[8.4px] relative ${
+                estadoNft === "sold-out" ? "bg-error" : "bg-advertencia"
+              }`}
+            />
+          </div>
+          <div
+            className={`font-text3-desktop w-fit tracking-[var(--text3-desktop-letter-spacing)] [font-style:var(--text3-desktop-font-style)] text-[length:var(--text3-desktop-font-size)] font-[number:var(--text3-desktop-font-weight)] text-center leading-[var(--text3-desktop-line-height)] relative ${
+              estadoNft === "sold-out" ? "text-violeta-noche" : "text-blanco-95"
+            }`}
+          >
+            {estadoNft === "ltimas-unidades" && <>VINT</>}
+
+            {estadoNft === "sold-out" && <>SOLD OUT</>}
+          </div>
+        </div>
+      )}
+    </div>
+      </section>
       <style jsx>{`
         .hero-section {
           position: absolute;
